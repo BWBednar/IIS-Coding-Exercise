@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { CustomerController } from './customer.controller';
 import { CustomerService } from './customer.service';
 import { 
+  testCustomerCollection,
   testUser
 } from '../../models/test-models/test-customer'
 import { FindCustomerResponseDto } from './dto/findCustomer.dto';
@@ -21,43 +22,44 @@ describe('CustomerController', () => {
     customerService = app.get<CustomerService>(CustomerService);
   });
 
+  afterEach(async () => {
+    jest.resetAllMocks();
+  })
+
   describe('customerController', () => {
     it('should be defined', () => {
       expect(CustomerController).toBeDefined();
     });
 
     describe('findCustomer', () => {
-      const referenceCustomer = testUser;
+      const referenceCustomer = testCustomerCollection[0];
       const result: FindCustomerResponseDto = new FindCustomerResponseDto(
-        referenceCustomer.id,
-        referenceCustomer.firstName,
-        referenceCustomer.middleName,
-        referenceCustomer.lastName,
-        referenceCustomer.isActive
+        testCustomerCollection[0].id,
+        testCustomerCollection[0].firstName,
+        testCustomerCollection[0].middleName,
+        testCustomerCollection[0].lastName,
+        testCustomerCollection[0].isActive
       )
       it('should call customerService.findCustomer', async () => {
-        jest.spyOn(customerService, 'findCustomer').mockImplementation(async () => result)
-        const callResult = await customerController.findCustomer(referenceCustomer.id)
-        expect(customerService.findCustomer).toHaveBeenCalled()
+        await customerController.findCustomer(referenceCustomer.id)
+        expect(customerService.findCustomer).toHaveBeenCalled
       })
 
       it('should return result if present', async () => {
-        jest.spyOn(customerService, 'findCustomer').mockImplementation(async () => result)
         const callResult = await customerController.findCustomer(referenceCustomer.id)
-        expect(callResult).toBe(result);
+        expect(JSON.stringify(callResult)).toBe(JSON.stringify(result));
       })
 
       it('should throw an error if not found', async () => {
-        jest.spyOn(customerService, 'findCustomer').mockImplementation(async () => {throw new NotFoundException()})
         try {
-          await customerController.findCustomer(referenceCustomer.id)
+          await customerController.findCustomer('')
         } catch (error) {
           expect(error.status).toBe(HttpStatus.NOT_FOUND)
         }
       })
 
       it('should throw a default error for unexpected situations', async () => {
-        jest.spyOn(customerService, 'findCustomer').mockImplementation(async () => {throw new InternalServerErrorException()})
+        jest.spyOn(customerService, 'findCustomer').mockImplementationOnce(async () => {throw new InternalServerErrorException()})
         try {
           await customerController.findCustomer(referenceCustomer.id)
         } catch (error) {

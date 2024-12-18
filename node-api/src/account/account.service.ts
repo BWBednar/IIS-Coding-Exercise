@@ -127,7 +127,7 @@ export class AccountService {
       testAccountCollection.map((entry: Account) => {
         if (entry.id === account.id) entry.balance += request.amount
       })
-      
+        
       // Mark the previously created transaction entry completed if successful
       await this.transactionService.completeTransaction(transaction.id)
 
