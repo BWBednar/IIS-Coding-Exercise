@@ -21,7 +21,7 @@ Postman API call examples are also available within the repository at ./docs/Cod
 
 ## Available Test Cases
 
-This project contains the beginning of unit tests that would be completed in a final enterprise solution. Manual testing and automated test suites were used in confirming functionality of the API. Sadly, not all test cases were able to be completed due to time and life constraints in time for the interview, but the pieces that would be tested for have been noted in the .spec.ts files within the ./node-api/src folders.
+This project contains the beginning of unit tests that would be completed in a final enterprise solution. Manual testing and automated test suites were used in confirming functionality of the API. Sadly, not all automated test suite cases were able to be completed due to time and life constraints in time for the interview, but the pieces that would be tested for have been noted in the .spec.ts files within the ./node-api/src folders. Regardless, all pieces of functionality have been tested through extensive manual testing using the API calls outlined in the Postman collection.
 
 The test cases that are available can be viewed within the .spec.ts files in the ./node-api/src/account , ./node-api/sec/customers , and ./node-api/src/transactions files.
 
