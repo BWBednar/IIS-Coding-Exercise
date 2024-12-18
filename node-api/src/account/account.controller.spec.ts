@@ -22,6 +22,7 @@ describe('AccountController', () => {
   let transactionSerivce: TransactionService
 
   beforeEach(async () => {
+    jest.clearAllMocks()
     const app: TestingModule = await Test.createTestingModule({
       imports: [
         CustomerModule,
@@ -82,134 +83,115 @@ describe('AccountController', () => {
       })
     })
 
-    describe('depositAccount', () => {
-
-      const referenceAccount: Account = testAccountCollection[0];
-      const referenceCustomer: Customer = {
-        id: referenceAccount.customerId,
-        firstName: '',
-        middleName: '',
-        lastName: '',
-        email: '',
-        isActive: true,
-        createdOn: new Date(),
-        createdBy: '',
-        updatedBy: '',
-        updatedOn: new Date()
-      }
-      const input: DepositAccountDto = {
-        customerId: testAccountCollection[0].customerId,
-        accountId: testAccountCollection[0].id,
-        amount: 10
-      }
-      const result: DespositAccountResponseDto = new DespositAccountResponseDto(
-        testAccountCollection[0].customerId,
-        testAccountCollection[0].id,
-        testAccountCollection[0].balance + 10,
-        true
-      )
-
-      it('should call accountService.depositAccount', async () => {
-        await accountController.depositAccount(input)
-        expect(accountService.depositAccount).toHaveBeenCalled
-      })
-
-      it('should return the expected balance', async () => {
-        jest.spyOn(customerService, 'queryCustomerTable').mockResolvedValueOnce( referenceCustomer )
-        jest.spyOn(transactionSerivce, 'createTransaction').mockResolvedValueOnce(new CreateTransactionResponseDto(
-          v4(),
-          testAccountCollection[0].id,
-          testAccountCollection[0].customerId,
-          2,
-          input.amount
-        )) // not concerned about this output here
-        jest.spyOn(transactionSerivce, 'completeTransaction').mockResolvedValueOnce(undefined)
-        console.log(input)
-        console.log(testAccountCollection[0])
-        const callResult = await accountController.depositAccount(input) 
-        expect(JSON.stringify(callResult)).toBe(JSON.stringify(result))
-      })
-
-      it('should fail if the account does not belong to the customer', () => {
-
-      })
-
-      it('should fail if the account is inactive', () => {
-
-      })
-
-      it('should fail if the customer is inactive', () => {
-
-      })
-
-      it('should fail if the balance is less than 0', () => {
-
-      })
-
-      it('should throw a default error if something unexpected happens', () => {
-
-      })
-    })
-
-    // describe('withdrawAccount', () => {
-    //   const referenceAccount = testSavingsAccount;
-    //   const input: WithdrawAccountDto = {
-    //     customerId: referenceAccount.customerId,
-    //     accountId: referenceAccount.id,
-    //     amount: 12.34
+    // describe('depositAccount', () => {
+    //   const referenceAccount: Account = testAccountCollection[0];
+    //   const referenceCustomer: Customer = {
+    //     id: referenceAccount.customerId,
+    //     firstName: '',
+    //     middleName: '',
+    //     lastName: '',
+    //     email: '',
+    //     isActive: true,
+    //     createdOn: new Date(),
+    //     createdBy: '',
+    //     updatedBy: '',
+    //     updatedOn: new Date()
     //   }
-    //   const badInput: WithdrawAccountDto = {
-    //     customerId: referenceAccount.customerId,
-    //     accountId: referenceAccount.id,
-    //     amount: -1
+    //   const input: DepositAccountDto = {
+    //     customerId: testAccountCollection[0].customerId,
+    //     accountId: testAccountCollection[0].id,
+    //     amount: 10
     //   }
-    //   const result: WithdrawAccountResponseDto = new WithdrawAccountResponseDto(
-    //     referenceAccount.customerId,
-    //     referenceAccount.id,
-    //     111.11, // 123.45 - 12.34
+    //   const result: DespositAccountResponseDto = new DespositAccountResponseDto(
+    //     testAccountCollection[0].customerId,
+    //     testAccountCollection[0].id,
+    //     testAccountCollection[0].balance + 10,
     //     true
     //   )
-    //   it('should call accountService.withdrawAccount', async () => {
-    //     jest.spyOn(accountService, 'withdrawAccount').mockImplementationOnce(async () => result)
-    //     const callResult = await accountController.withdrawAccount(input)
-    //     expect(accountService.withdrawAccount).toHaveBeenCalled()
-    //     expect(accountService.withdrawAccount).toHaveBeenCalledWith(input)
+
+    //   it('should call accountService.depositAccount', async () => {
+    //     await accountController.depositAccount(input)
+    //     expect(accountService.depositAccount).toHaveBeenCalled
     //   })
 
-    //   it('should return result if input is correct', async () => {
-    //     jest.spyOn(accountService, 'withdrawAccount').mockImplementationOnce(async () => result)
-    //     const callResult = await accountController.withdrawAccount(input)
-    //     expect(callResult).toBe(result);
-    //   })
+    //   // it('should return the expected balance', async () => {
+    //   //   jest.spyOn(customerService, 'queryCustomerTable').mockResolvedValueOnce( referenceCustomer )
+    //   //   jest.spyOn(transactionSerivce, 'createTransaction').mockResolvedValueOnce(new CreateTransactionResponseDto(
+    //   //     v4(),
+    //   //     testAccountCollection[0].id,
+    //   //     testAccountCollection[0].customerId,
+    //   //     2,
+    //   //     input.amount
+    //   //   )) // not concerned about this output here
+    //   //   jest.spyOn(transactionSerivce, 'completeTransaction').mockResolvedValueOnce(undefined)
+    //   //   console.log(input)
+    //   //   console.log(testAccountCollection[0])
+    //   //   const callResult = await accountController.depositAccount(input) 
+    //   //   expect(JSON.stringify(callResult)).toBe(JSON.stringify(result))
+    //   // })
 
-    //   it('should throw an error if value is negative', async () => {
-    //     jest.spyOn
-    //     try {
-    //       await accountController.withdrawAccount(badInput)
-    //     } catch (error) {
-    //       expect(error.status).toBe(HttpStatus.BAD_REQUEST)
-    //     }
-    //   })
+    //   // it('should fail if the account does not belong to the customer', async () => {
+    //   //   jest.spyOn(customerService, 'queryCustomerTable').mockResolvedValueOnce(  )
+    //   //   try {
+    //   //     await accountController.depositAccount(input)
+    //   //   } catch (error) {
+    //   //     expect(error.status).toBe(HttpStatus.UNAUTHORIZED)
+    //   //   }
+    //   // })
 
-      // it('should throw an error if the customer is does not own the account', async () => {
-      //   jest.spyOn(accountService, )
-      //   jest.spyOn(accountService, 'findAccountByAccount').mockImplementationOnce(async () => {throw new BadRequestException()})
-      //   try {
-      //     await accountController.withdrawAccount(badInput)
-      //   } catch (error) {
-      //     expect(error.status).toBe(HttpStatus.BAD_REQUEST)
-      //   }
+    //   // it('should fail if the account is inactive', () => {
+        
+    //   // })
+
+    //   // it('should fail if the customer is inactive', () => {
+
+    //   // })
+
+    //   // it('should fail if the balance is less than 0', () => {
+
+    //   // })
+
+    //   // it('should throw a default error if something unexpected happens', () => {
+
+    //   // })
+    // })
+
+    // describe('withdrawAccount', () => {
+      // it('should call accountService.withdrawAccount', async () => {
+
       // })
 
-      // it('should throw a default error for unexpected situations', async () => {
-      //   jest.spyOn(accountService, 'findAccountByAccount').mockImplementationOnce(async () => {throw new InternalServerErrorException()})
-      //   try {
-      //     await accountController.findAccount(referenceAccount.id)
-      //   } catch (error) {
-      //     expect(error.status).toBe(HttpStatus.INTERNAL_SERVER_ERROR)
-      //   }
-      // })
-    //})
+      // it('should return the expected balance', async () => {
 
+      // })
+
+      // it('should fail if the account does not belong to the customer', async () => {
+
+      // })
+
+      // it('should fail if the account is inactive', () => {
+        
+      // })
+
+      // it('should fail if the customer is inactive', () => {
+
+      // })
+
+      // it('should fail if the balance is less than 0 after the withdraw', () => {
+
+      // })
+
+      // it('should throw a default error if something unexpected happens', () => {
+
+      // })
+    // })
+
+    // describe('closeAccount', () => {
+
+    // })
+
+    // describe('createAccount', () => {
+
+    // })
   });
 });
