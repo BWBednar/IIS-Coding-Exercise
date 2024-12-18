@@ -10,8 +10,7 @@ To run this code, your device will require Node.JS to be installed.
 Once this programming language is installed, clone the repository to your device and run from your terminal using the following commands (Note: no additional environment variables are needed to run)
 
 `
-cd node-api
-npm run start
+cd node-api && npm run start
 `
 
 These commands will run the API and make it available at http://localhost:3000 (assuming this port is available when running the previous commands)
