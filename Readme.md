@@ -10,7 +10,7 @@ To run this code, your device will require Node.JS to be installed.
 Once this programming language is installed, clone the repository to your device and run from your terminal using the following commands (Note: no additional environment variables are needed to run)
 
 `
-cd node-api && npm run start
+cd node-api && npm install && npm run start
 `
 
 These commands will run the API and make it available at http://localhost:3000 (assuming this port is available when running the previous commands)
@@ -25,7 +25,7 @@ This project contains the beginning of unit tests that would be completed in a f
 
 The test cases that are available can be viewed within the .spec.ts files in the ./node-api/src/account , ./node-api/sec/customers , and ./node-api/src/transactions files.
 
-These test cases can be ran with the following command (ran from root directory)
+These test cases can be ran with the following command (ran from root directory and assuming the npm install command from the previous command has been ran)
 
 `
 cd node-api && npm run test
