@@ -19,6 +19,18 @@ For full examples of the endpoints made available in this API, navigate to http:
 
 Postman API call examples are also available within the repository at ./docs/Coding Exercise.postman_colleaction.json . Follow this [link](https://github.com/BWBednar/IIS-Coding-Exercise/blob/main/docs/Coding%20Exercise.postman_collection.json) for quick access. (Note: This file can be imported if you have the Postman API tool, or the settings can be used to configure any local testing tool otherwise used)
 
+## Available Test Cases
+
+This project contains the beginning of unit tests that would be completed in a final enterprise solution. Manual testing and automated test suites were used in confirming functionality of the API. Sadly, not all test cases were able to be completed due to time and life constraints in time for the interview, but the pieces that would be tested for have been noted in the .spec.ts files within the ./node-api/src folders.
+
+The test cases that are available can be viewed within the .spec.ts files in the ./node-api/src/account , ./node-api/sec/customers , and ./node-api/src/transactions files.
+
+These test cases can be ran with the following command (ran from root directory)
+
+`
+cd node-api && npm run test
+`
+
 ## Additional Details 
 
 The code in this repo is written in Typescript using the NestJS Framework. While it is not the ASP.NET Framework, the majority of API concepts translate between these frameworks.

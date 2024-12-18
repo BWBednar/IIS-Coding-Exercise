@@ -41,7 +41,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"customerId\": \"710b2f0f-f1e7-4c45-a843-72f081ce37fa\",\r\n    \"accountId\": \"39a78fd4-52e6-4880-a52f-7255c5d4ff2a\",\r\n    \"amount\": 12.34\r\n}",
+							"raw": "{\r\n    \"customerId\": \"710b2f0f-f1e7-4c45-a843-72f081ce37fb\",\r\n    \"accountId\": \"39a78fd4-52e6-4880-a52f-7255c5d4ff2a\",\r\n    \"amount\": 12.34\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -99,7 +99,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"customerId\": \"710b2f0f-f1e7-4c45-a843-72f081ce37fc\",\r\n    \"accountId\": \"39a78fd4-52e6-4880-a52f-7255c5d4ff2c\"\r\n}",
+							"raw": "{\r\n    \"customerId\": \"710b2f0f-f1e7-4c45-a843-72f081ce37fa\",\r\n    \"accountId\": \"39a78fd4-52e6-4880-a52f-7255c5d4ff2a\",\r\n    \"amount\": 12.34\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -128,7 +128,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"customerId\": \"710b2f0f-f1e7-4c45-a843-72f081ce37fe\",\r\n    \"initialDeposit\": 100,\r\n    \"accountTypeId\": 1\r\n}",
+							"raw": "{\r\n    \"customerId\": \"710b2f0f-f1e7-4c45-a843-72f081ce37fe\",\r\n    \"initialDeposit\": 100,\r\n    \"accountTypeId\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
