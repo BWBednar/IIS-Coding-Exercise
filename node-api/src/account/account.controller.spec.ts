@@ -83,6 +83,13 @@ describe('AccountController', () => {
       })
     })
 
+    /*
+      Normally would have these test cases filled out and completed. 
+      I did not have the available time to complete these additional test cases, 
+      but normally would have them complete in an enterprise solution.
+      The aspects that would be tested for are noted in the 'it' statements
+    */
+
     // describe('depositAccount', () => {
     //   const referenceAccount: Account = testAccountCollection[0];
     //   const referenceCustomer: Customer = {
@@ -114,46 +121,46 @@ describe('AccountController', () => {
     //     expect(accountService.depositAccount).toHaveBeenCalled
     //   })
 
-    //   // it('should return the expected balance', async () => {
-    //   //   jest.spyOn(customerService, 'queryCustomerTable').mockResolvedValueOnce( referenceCustomer )
-    //   //   jest.spyOn(transactionSerivce, 'createTransaction').mockResolvedValueOnce(new CreateTransactionResponseDto(
-    //   //     v4(),
-    //   //     testAccountCollection[0].id,
-    //   //     testAccountCollection[0].customerId,
-    //   //     2,
-    //   //     input.amount
-    //   //   )) // not concerned about this output here
-    //   //   jest.spyOn(transactionSerivce, 'completeTransaction').mockResolvedValueOnce(undefined)
-    //   //   console.log(input)
-    //   //   console.log(testAccountCollection[0])
-    //   //   const callResult = await accountController.depositAccount(input) 
-    //   //   expect(JSON.stringify(callResult)).toBe(JSON.stringify(result))
-    //   // })
+      // it('should return the expected balance', async () => {
+      //   jest.spyOn(customerService, 'queryCustomerTable').mockResolvedValueOnce( referenceCustomer )
+      //   jest.spyOn(transactionSerivce, 'createTransaction').mockResolvedValueOnce(new CreateTransactionResponseDto(
+      //     v4(),
+      //     testAccountCollection[0].id,
+      //     testAccountCollection[0].customerId,
+      //     2,
+      //     input.amount
+      //   )) // not concerned about this output here
+      //   jest.spyOn(transactionSerivce, 'completeTransaction').mockResolvedValueOnce(undefined)
+      //   console.log(input)
+      //   console.log(testAccountCollection[0])
+      //   const callResult = await accountController.depositAccount(input) 
+      //   expect(JSON.stringify(callResult)).toBe(JSON.stringify(result))
+      // })
 
-    //   // it('should fail if the account does not belong to the customer', async () => {
-    //   //   jest.spyOn(customerService, 'queryCustomerTable').mockResolvedValueOnce(  )
-    //   //   try {
-    //   //     await accountController.depositAccount(input)
-    //   //   } catch (error) {
-    //   //     expect(error.status).toBe(HttpStatus.UNAUTHORIZED)
-    //   //   }
-    //   // })
+      // it('should fail if the account does not belong to the customer', async () => {
+      //   jest.spyOn(customerService, 'queryCustomerTable').mockResolvedValueOnce(  )
+      //   try {
+      //     await accountController.depositAccount(input)
+      //   } catch (error) {
+      //     expect(error.status).toBe(HttpStatus.UNAUTHORIZED)
+      //   }
+      // })
 
-    //   // it('should fail if the account is inactive', () => {
+      // it('should fail if the account is inactive', () => {
         
-    //   // })
+      // })
 
-    //   // it('should fail if the customer is inactive', () => {
+      // it('should fail if the customer is inactive', () => {
 
-    //   // })
+      // })
 
-    //   // it('should fail if the balance is less than 0', () => {
+      // it('should fail if the balance is less than 0', () => {
 
-    //   // })
+      // })
 
-    //   // it('should throw a default error if something unexpected happens', () => {
+      // it('should throw a default error if something unexpected happens', () => {
 
-    //   // })
+      // })
     // })
 
     // describe('withdrawAccount', () => {
@@ -187,11 +194,51 @@ describe('AccountController', () => {
     // })
 
     // describe('closeAccount', () => {
+      // it('should call accountService.closeAccount', async () => {
 
+      // })
+
+      // it('should close the expected account', async () => {
+
+      // })
+
+      // it('should fail if the account does not belong to the customer', async () => {
+
+      // })
+
+      // it('should fail if the account is inactive', () => {
+        
+      // })
+
+      // it('should fail if the customer is inactive', () => {
+
+      // })
     // })
 
     // describe('createAccount', () => {
+      // it('should call accountService.createAccount', async () => {
 
+      // })
+
+      // it('should create the expected account', async () => {
+
+      // })
+
+      // it('should fail if the customer is inactive', () => {
+
+      // })
+
+      // it('should fail if the initialBalance value is less than 100', async () => {
+
+      // })
+
+      // it('should fail if the user does is creating a checking account before savings account', () => {
+
+      // })
+
+      // it('should pass if the user already has a savings account created, regardless of account type', () => {
+
+      // })
     // })
   });
 });
